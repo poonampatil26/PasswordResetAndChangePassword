@@ -1,0 +1,41 @@
+{% extends 'Account/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<img src="https://picsum.photos/200/300" alt="Image not found">
+
+<a href="{% url 'logout' %}">
+<input type="submit" value="Logout">
+    </a>
+<br><br>
+
+<a href="{% url 'chngpwd' %}">
+<input type="submit" value="Change Password">
+    </a>
+
+<a href="{% url 'simple_upload' %}">
+<input type="submit" value="Image upload">
+    </a>
+
+<table>
+    <tr>
+        <th>Description</th>
+        <th>Document</th>
+        <th>Uploaded at</th>
+    </tr>
+     {% for i in view %}
+    <tr>
+        <td>{{i.description}}</td>
+        <td>{{i.document}}</td>
+        <td>
+            <a><img src="{{ i.document.url }}" alt="..."></a>
+        </td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+
+
+{% endblock %}

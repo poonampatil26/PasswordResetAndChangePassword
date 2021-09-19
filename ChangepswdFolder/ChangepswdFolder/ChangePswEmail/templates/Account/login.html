@@ -1,0 +1,23 @@
+{% extends 'Account/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <h1 style="text-align:center;">Login</h1>
+    <form method="post" class="jumbotron" style="width60%">
+        {% csrf_token %}
+        <label for="un">Enter Username</label>
+        <input type="text" id="un" name="un" class="form-control"><br>
+        <label for="pw">Enter Password</label>
+        <input type="password" id="pw" name="pw" class="form-control"><br>
+        {% if messages %}
+        {% for msg in messages %}
+        <p style="color:black;">{{msg}}</p>
+        {% endfor %}
+        {% endif %}
+        <input type="submit" value="Login" class="btn btn-dark">
+
+        <a href="{% url 'password_reset' %}">Forget Password</a>
+    </form>
+</div>
+{% endblock %}

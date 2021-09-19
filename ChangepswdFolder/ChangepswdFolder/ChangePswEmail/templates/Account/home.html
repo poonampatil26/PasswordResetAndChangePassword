@@ -1,0 +1,9 @@
+{% extends 'Account/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<a href="{% url 'model_form_upload' %}">
+    <input type="submit" value=" Model Upload">
+    </a>
+{% endblock %}
